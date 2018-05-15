@@ -22,9 +22,13 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
      merge ANTLRBase. Commit it.
   1. Add the ANTLRBase repository as an upstream remote using
     `git remote add upstream <clone-link>`.
+  1. Fetch the contents of the upstream using `git fetch upstream`.
   1. Merge ANTLRBase into this repository using
      `git merge master upstream/master`.
   1. Edit grammar related cmake sections. (`GRAMMAR_NAME` and `ANTLR_NAMESPACE`
      in the base directory's `CMakeLists.txt`, rename and edit
      `grammar/placeholder.g4` accordingly).
   1. Distribute.
+
+Once the upstream remote is added, pulling in new content from the upstream
+only requires fetching then merging.
