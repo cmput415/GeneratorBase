@@ -15,6 +15,15 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Done.
 
 # Usage (For new assignments)
+  1. Create a new _empty_ repository.
+  1. Clone empty repository, it will warn you that the repository is empty.
+  1. Create the master branch using `git checkout -b master`.
+  1. Create `README.md` with some small content, you can edit this more once you
+     merge ANTLRBase. Commit it.
+  1. Add the ANTLRBase repository as an upstream remote using
+    `git remote add upstream <clone-link>`.
+  1. Merge ANTLRBase into this repository using
+     `git merge master upstream/master`.
   1. Edit grammar related cmake sections. (`GRAMMAR_NAME` and `ANTLR_NAMESPACE`
      in the base directory's `CMakeLists.txt`, rename and edit
      `grammar/placeholder.g4` accordingly).
