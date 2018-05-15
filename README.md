@@ -1,5 +1,5 @@
 # ANTLRBase
-The base cmake setup for a C++ project that generates an ANTLR lexer and parser.
+The base cmake setup for the generator assignment.
 
 Author: Braedy Kuzma (braedy@ualberta.ca)
 
@@ -10,25 +10,7 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
        encounter an issue, let Braedy know and we can fix it.
   1. Make a directory that you intend to build the project in and change into
      that directory.
-  1. Run `cmake <path-to-ANTLR-Base>`.
+  1. Run `cmake <path-to-generator-src>`.
   1. Run `make`.
   1. Done.
 
-# Usage (For new assignments)
-  1. Create a new _empty_ repository on GitHub.
-  1. Clone empty repository, it will warn you that the repository is empty.
-  1. Create the master branch using `git checkout -b master`.
-  1. Create `README.md` with some small content, you can edit this more once you
-     merge ANTLRBase. Commit it.
-  1. Add the ANTLRBase repository as an upstream remote using
-    `git remote add upstream <clone-link>`.
-  1. Fetch the contents of the upstream using `git fetch upstream`.
-  1. Merge ANTLRBase into this repository using
-     `git merge master upstream/master`.
-  1. Edit grammar related cmake sections. (`GRAMMAR_NAME` and `ANTLR_NAMESPACE`
-     in the base directory's `CMakeLists.txt`, rename and edit
-     `grammar/placeholder.g4` accordingly).
-  1. Distribute.
-
-Once the upstream remote is added, pulling in new content from the upstream
-only requires fetching then merging.
