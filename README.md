@@ -15,7 +15,7 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Done.
 
 # Usage (For new assignments)
-  1. Edit grammar related cmake sections. (GRAMMAR_NAME and ANTLR_NAMESPACE in
-     the base directory's CMakeLists.txt, rename and edit grammar/placeholder.g4
-     accordingly).
+  1. Edit grammar related cmake sections. (`GRAMMAR_NAME` and `ANTLR_NAMESPACE`
+     in the base directory's `CMakeLists.txt`, rename and edit
+     `grammar/placeholder.g4` accordingly).
   1. Distribute.
