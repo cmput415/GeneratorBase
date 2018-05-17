@@ -3,7 +3,8 @@ The base cmake setup for the generator assignment.
 
 Author: Braedy Kuzma (braedy@ualberta.ca)
 
-# Usage (Building)
+# Usage
+## Building
 ### Linux
   1. Install git, java (only the runtime is necessary), and cmake (>= v3.0).
      - Until now, cmake has found the dependencies without issues. If you
@@ -13,3 +14,13 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Run `cmake <path-to-generator-src>`.
   1. Run `make`.
   1. Done.
+
+## Pulling in upstream changes</a>
+  1. Add the upstream as a remote using `git remote add upstream <clone-link>`.
+  1. Fetch updates from the upstream using `git fetch upstream`
+  1. Merge the updates into a local branch using
+     `git merge <local branch> upstream/<upstream branch>`. Usually both brances
+     are `master`.
+
+Once the remote has been added, future updates are simply the `fetch` and
+`merge` steps.
