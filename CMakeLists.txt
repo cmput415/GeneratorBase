@@ -19,5 +19,8 @@ set(ANTLR_NAMESPACE "placeholder")
 # Generate sources.
 include("${CMAKE_SOURCE_DIR}/cmake/antlr_generate.cmake")
 
+# Include project headers
+include_directories("${CMAKE_SOURCE_DIR}/include")
+
 # Build src
 add_subdirectory("${CMAKE_SOURCE_DIR}/src")
