@@ -19,8 +19,8 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Add the upstream as a remote using `git remote add upstream <clone-link>`.
   1. Fetch updates from the upstream using `git fetch upstream`
   1. Merge the updates into a local branch using
-     `git merge <local branch> upstream/<upstream branch>`. Usually both brances
-     are `master`.
+     `git merge <local branch> upstream/<upstream branch>`. Usually both
+     branches are `master`.
 
 Once the remote has been added, future updates are simply the `fetch` and
 `merge` steps.
