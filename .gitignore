@@ -1,3 +1,6 @@
+# Ignore custom cmake directories
+bin/
+
 # Ignore generated ANTLR sources
 gen/
 

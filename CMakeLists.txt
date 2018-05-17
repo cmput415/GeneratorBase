@@ -9,6 +9,9 @@ find_package(Java COMPONENTS Runtime REQUIRED) # Need java to run ANTLR, but onl
 # Set C++ standards.
 set(CMAKE_CXX_STANDARD 11)
 
+# Include cmake utilities
+include("${CMAKE_SOURCE_DIR}/cmake/symlink_to_bin.cmake")
+
 # Grab ANTLR.
 include("${CMAKE_SOURCE_DIR}/cmake/get_antlr.cmake")
 
