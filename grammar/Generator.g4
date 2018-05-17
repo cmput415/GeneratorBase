@@ -1,4 +1,4 @@
-grammar placeholder;
+grammar Generator;
 
 file: .*? EOF;
 

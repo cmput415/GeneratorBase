@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 11)
 include("${CMAKE_SOURCE_DIR}/cmake/get_antlr.cmake")
 
 # Set up paths and info to generate ANTLR sources with.
-set(GRAMMAR_NAME "generator")
+set(GRAMMAR_NAME "Generator")
 set(ANTLR_NAMESPACE "generator")
 
 # Generate sources.
