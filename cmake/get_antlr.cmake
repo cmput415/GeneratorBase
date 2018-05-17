@@ -1,3 +1,5 @@
+# CMake module that downloads the antlr source and builds the C++ runtime required when linking
+# the generated lexer/parser. Sets ANTLR_INCLUDE_DIRS and ANTLR_LIBS as results.
 
 # Set the directory for tools
 file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" TOOL_DIR) # Join dir.
