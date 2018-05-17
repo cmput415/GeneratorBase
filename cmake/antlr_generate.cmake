@@ -17,14 +17,16 @@ message(STATUS "Generated source destination: ${GEN_DIR_NATIVE}")
 # Change the command (target) name and actual command based on whether or not we have a namespace
 # to use.
 if(DEFINED ANTLR_NAMESPACE)
-  set(ANTLR_COMMAND
-    "${Java_JAVA_EXECUTABLE}" -jar "${ANTLR_JAR}" -Werror -Dlanguage=Cpp -listener -visitor
-    -o "${GEN_DIR}" -package "${ANTLR_NAMESPACE}" "${GRAMMAR_PATH}"
+  set(
+    ANTLR_COMMAND
+      "${Java_JAVA_EXECUTABLE}" -jar "${ANTLR_JAR}" -Werror -Dlanguage=Cpp -listener -visitor
+      -o "${GEN_DIR}" -package "${ANTLR_NAMESPACE}" "${GRAMMAR_PATH}"
   )
 else()
-  set(ANTLR_PACKAGE
-    "${Java_JAVA_EXECUTABLE}" -jar "${ANTLR_JAR}" -Werror -Dlanguage=Cpp -listener -visitor
-    -o "${GEN_DIR}" "${GRAMMAR_PATH}"
+  set(
+    ANTLR_COMMAND
+      "${Java_JAVA_EXECUTABLE}" -jar "${ANTLR_JAR}" -Werror -Dlanguage=Cpp -listener -visitor
+      -o "${GEN_DIR}" "${GRAMMAR_PATH}"
   )
 endif()
 
