@@ -1,4 +1,4 @@
-# ANTLRBase
+# GeneratorBase
 The base cmake setup for the generator assignment.
 
 Author: Braedy Kuzma (braedy@ualberta.ca)
@@ -13,4 +13,3 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Run `cmake <path-to-generator-src>`.
   1. Run `make`.
   1. Done.
-
