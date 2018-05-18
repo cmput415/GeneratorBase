@@ -24,7 +24,7 @@ endif()
 ExternalProject_Add(
   antlr
 
-  # Set up custom paths
+  # Set up custom paths.
   PREFIX "${CMAKE_BINARY_DIR}"
   TMP_DIR "${CMAKE_BINARY_DIR}/antlr-tmp"
   STAMP_DIR "${CMAKE_BINARY_DIR}/antlr-stamp"
@@ -33,7 +33,7 @@ ExternalProject_Add(
   BINARY_DIR "${CMAKE_BINARY_DIR}/antlr-build"
   INSTALL_DIR "${CMAKE_BINARY_DIR}/antlr-install"
 
-  # ANTLR repository and tag
+  # ANTLR repository and tag.
   GIT_REPOSITORY https://github.com/antlr/antlr4.git
   GIT_TAG "4.7.1"
   UPDATE_COMMAND ""
@@ -42,7 +42,7 @@ ExternalProject_Add(
   #LOG_DOWNLOAD ON
 
   # Modify the configure command to always build release mode, both shared and static libs, notify
-  # of jar location, and then set custom paths for the build and install
+  # of jar location, and then set custom paths for the build and install.
   CONFIGURE_COMMAND
   ${CMAKE_COMMAND}
   -DCMAKE_BUILD_TYPE=Release
@@ -63,12 +63,12 @@ ExternalProject_Add(
 # Grab the install directory so we can get the include directories and built libs.
 ExternalProject_Get_Property(antlr INSTALL_DIR)
 
-# Create includes paths
+# Create includes paths.
 list(APPEND ANTLR_INCLUDE_DIRS ${INSTALL_DIR}/include/antlr4-runtime)
 foreach(src_path misc atn dfa tree support)
   list(APPEND ANTLR_INCLUDE_DIRS ${INSTALL_DIR}/include/antlr4-runtime/${src_path})
 endforeach(src_path)
 
-# Create libs path and then add it to the linker paths
+# Create libs path and then add it to the linker paths.
 set(ANTLR_LIBS "${INSTALL_DIR}/lib")
 link_directories("${ANTLR_LIBS}")
