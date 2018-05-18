@@ -11,7 +11,7 @@ function(symlink_to_bin target)
   else()
     message(STATUS "Generating custom command for symlinking ${target}.")
     add_custom_target(
-      "link_${target}" ALL
+      "symlink_${target}" ALL
       DEPENDS ${target}
       COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_SOURCE_DIR}/bin"
       COMMAND ${CMAKE_COMMAND} -E create_symlink
