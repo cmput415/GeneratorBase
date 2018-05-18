@@ -68,8 +68,6 @@ add_custom_command(
   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
 
-# Build the library
-# The headers aren't required in add_library to build, but CLion complains about them not being
-# "used", saying they won't be available in IDE static analysis, if they aren't included here.
-add_library(parser STATIC ${ANTLR_GEN_SRC} ${ANTLR_GEN_HEADERS})
+# Build a library from the generated sources.
+add_library(parser STATIC ${ANTLR_GEN_SRC})
 target_include_directories(parser PUBLIC ${ANTLR_INCLUDE_DIRS})
