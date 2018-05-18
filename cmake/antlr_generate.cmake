@@ -1,3 +1,7 @@
+# CMake module that generates an ANTLR parser and lexer. Expects a variable GRAMMAR_NAME (extension
+# not included) that names a .g4 file in ${CMAKE_SOURCE_DIR}/grammar/. Creates a target named
+# "parser" that can be linked into your target
+
 # Fail if we don't have the ANTLR jar.
 if(NOT EXISTS "${ANTLR_JAR}")
   message(FATAL_ERROR "Unable to find antlr jar. Did we miss a build step?")
