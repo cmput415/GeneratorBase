@@ -1,18 +1,18 @@
 # Gather our source files in this directory
 set(
-  placeholder_src_files
+  generator_src_files
     "${CMAKE_CURRENT_SOURCE_DIR}/placeholder.cpp"
 )
 
 # Build our executable from the source files
-add_executable(placeholder ${placeholder_src_files})
-target_include_directories(placeholder PUBLIC ${ANTLR_GEN_DIR})
+add_executable(generator ${generator_src_files})
+target_include_directories(generator PUBLIC ${ANTLR_GEN_DIR})
 
 # Ensure that the antlr4-runtime is available
-add_dependencies(placeholder antlr)
+add_dependencies(generator antlr)
 
 # Add the antlr runtime and parser as libraries to link
-target_link_libraries(placeholder parser antlr4-runtime)
+target_link_libraries(generator parser antlr4-runtime)
 
 # Symbolic link our executable to the base directory so we don't have to go searching for it
-symlink_to_bin("placeholder")
+symlink_to_bin("generator")
