@@ -1,6 +1,6 @@
-# Function that creates a custom target that depends on a target of your choosing and symlinks it to
-# a new folder in the main source tree called "bin" so that target executables (or libraries, etc.)
-# are easily accessible.
+# Function that creates a custom target that depends on a target of your choosing and symlinks its
+# result to a new folder in the main source tree called "bin" so that target executables (or
+# libraries, etc.) are easily accessible.
 
 function(symlink_to_bin target)
   if(WIN32)
@@ -11,7 +11,7 @@ function(symlink_to_bin target)
   else()
     message(STATUS "Generating custom command for symlinking ${target}.")
     add_custom_target(
-      "link_${target}" ALL
+      "symlink_${target}" ALL
       DEPENDS ${target}
       COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_SOURCE_DIR}/bin"
       COMMAND ${CMAKE_COMMAND} -E create_symlink

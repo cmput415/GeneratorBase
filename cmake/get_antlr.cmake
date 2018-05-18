@@ -1,5 +1,6 @@
 # CMake module that downloads the antlr source and builds the C++ runtime required when linking
-# the generated lexer/parser. Sets ANTLR_INCLUDE_DIRS and ANTLR_LIBS as results.
+# the generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
+# include directories and allows your build to link against antlr4-runtime.
 
 # Set the directory for tools
 file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" TOOL_DIR) # Join dir.
@@ -62,10 +63,12 @@ ExternalProject_Add(
 # Grab the install directory so we can get the include directories and built libs.
 ExternalProject_Get_Property(antlr INSTALL_DIR)
 
-# Create variables for includes and libs.
+# Create includes paths
 list(APPEND ANTLR_INCLUDE_DIRS ${INSTALL_DIR}/include/antlr4-runtime)
 foreach(src_path misc atn dfa tree support)
   list(APPEND ANTLR_INCLUDE_DIRS ${INSTALL_DIR}/include/antlr4-runtime/${src_path})
 endforeach(src_path)
 
+# Create libs path and then add it to the linker paths
 set(ANTLR_LIBS "${INSTALL_DIR}/lib")
+link_directories("${ANTLR_LIBS}")
