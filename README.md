@@ -23,6 +23,8 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Edit grammar related cmake sections. (`GRAMMAR_NAME` and `ANTLR_NAMESPACE`
      in the base directory's `CMakeLists.txt`, rename and edit
      `grammar/placeholder.g4` accordingly).
+  1. Rename and change `placeholder.cpp` and `placeholder.h`. Change
+     `src/CMakeLists.txt` accordingly.
   1. Distribute.
 
 Follow the pulling in [upstream changes](#pulling-in-upstream-changes) section
