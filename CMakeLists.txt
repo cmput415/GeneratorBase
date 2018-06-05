@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.0)
 project(ANTLRBase)
 
 # Ensure tool dependencies.
-include(ExternalProject) # Required to download and build external projects (i.e. ANTLR)
-find_package(Git REQUIRED) # Need git to download ANTLR through ExternalProject
-find_package(Java COMPONENTS Runtime REQUIRED) # Need java to run ANTLR, but only the runtime
+include(ExternalProject) # Required to download and build external projects (i.e. ANTLR).
+find_package(Git REQUIRED) # Need git to download ANTLR through ExternalProject.
+find_package(Java COMPONENTS Runtime REQUIRED) # Need java to run ANTLR, but only the runtime.
 
 # Set C++ standards.
 set(CMAKE_CXX_STANDARD 11)
@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 11)
 # Add CXX flags.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
-# Include cmake utilities
+# Include cmake utilities.
 include("${CMAKE_SOURCE_DIR}/cmake/symlink_to_bin.cmake")
 
 # Grab ANTLR.
