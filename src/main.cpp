@@ -8,7 +8,7 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-  if (argc < 3) {
+  if (argc < 2) {
     std::cout << "Missing required argument.\n"
               << "Required arguments: <input file path> <output file path>\n";
     return 1;
