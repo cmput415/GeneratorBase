@@ -6,13 +6,19 @@
 #include "tree/ParseTree.h"
 
 int main(int argc, char **argv) {
+  if (argc < 3) {
+    std::cout << "Missing required argument.\n"
+              << "Required arguments: <input file path> <output file path>\n";
+    return 1;
+  }
+
   // Open the file then parse and lex it.
   antlr4::ANTLRFileStream afs(argv[1]);
   placeholder::placeholderLexer lexer(&afs);
   antlr4::CommonTokenStream tokens(&lexer);
   placeholder::placeholderParser parser(&tokens);
 
-  // Get the root of the parse tree.
+  // Get the root of the parse tree. Use your base rule name.
   antlr4::tree::ParseTree *tree = parser.file();
 
   // HOW TO USE A LISTENER
@@ -26,5 +32,10 @@ int main(int argc, char **argv) {
   // MyVisitor visitor;
   // Visit the tree
   // visitor.visit(tree);
+
+  // HOW TO WRITE OUT.
+  // std::ofstream out(argv[3]);
+  // out << "This is out...\n";
+
   return 0;
 }
