@@ -1,7 +1,7 @@
 # Gather our source files in this directory.
 set(
   generator_src_files
-    "${CMAKE_CURRENT_SOURCE_DIR}/placeholder.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
 )
 
 # Build our executable from the source files.
