@@ -1,5 +1,0 @@
-#include "placeholder.h"
-
-int main() {
-  return 0;
-}
