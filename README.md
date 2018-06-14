@@ -26,6 +26,8 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. In `main.cpp`, edit the includes, namespaces, and generated class names as
      in accordance with your new grammar's name and namespace.
   1. Change the argument list and count if necessary in `main.cpp`.
+  1. Update the current instructions in your `README.md` to reflect your
+     project.
   1. Add new usage instructions if you require more installs or instructions
      for other tools (LLVM or others) to `README.md`.
   1. Delete this section from your `README.md`.
