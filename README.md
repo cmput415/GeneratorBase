@@ -14,7 +14,7 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. Run `cmake <path-to-generator-src>`.
   1. Run `make`.
   1. Done.
-
+  
 ## Pulling in upstream changes</a>
   1. Add the upstream as a remote using `git remote add upstream <clone-link>`.
   1. Fetch updates from the upstream using `git fetch upstream`
