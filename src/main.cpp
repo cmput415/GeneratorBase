@@ -1,5 +1,5 @@
-#include "placeholderLexer.h"
-#include "placeholderParser.h"
+#include "GeneratorLexer.h"
+#include "GeneratorParser.h"
 
 #include "ANTLRFileStream.h"
 #include "CommonTokenStream.h"
@@ -14,9 +14,9 @@ int main(int argc, char **argv) {
 
   // Open the file then parse and lex it.
   antlr4::ANTLRFileStream afs(argv[1]);
-  placeholder::placeholderLexer lexer(&afs);
+  generator::GeneratorLexer lexer(&afs);
   antlr4::CommonTokenStream tokens(&lexer);
-  placeholder::placeholderParser parser(&tokens);
+  generator::GeneratorParser parser(&tokens);
 
   // Get the root of the parse tree. Use your base rule name.
   antlr4::tree::ParseTree *tree = parser.file();
