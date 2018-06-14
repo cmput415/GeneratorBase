@@ -4,8 +4,10 @@
 #include "ANTLRFileStream.h"
 #include "CommonTokenStream.h"
 #include "tree/ParseTree.h"
+#include "tree/ParseTreeWalker.h"
 
 #include <iostream>
+#include <fstream>
 
 int main(int argc, char **argv) {
   if (argc < 3) {
