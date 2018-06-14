@@ -26,6 +26,8 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
   1. In `main.cpp`, edit the includes, namespaces, and generated class names as
      in accordance with your new grammar's name and namespace.
   1. Change the argument list and count if necessary in `main.cpp`.
+  1. In `src/CMakeLists.txt` change the src files variable name and the target
+     name to reflect your new project.
   1. Update the current instructions in your `README.md` to reflect your
      project.
   1. Add new usage instructions if you require more installs or instructions
