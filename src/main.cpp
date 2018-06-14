@@ -5,6 +5,8 @@
 #include "CommonTokenStream.h"
 #include "tree/ParseTree.h"
 
+#include <iostream>
+
 int main(int argc, char **argv) {
   if (argc < 3) {
     std::cout << "Missing required argument.\n"
