@@ -9,7 +9,8 @@
 
 # Get the environment variable that tells us where the manual install was.
 if (NOT DEFINED ENV{ANTLR_INS})
-  message(FATAL_ERROR "Did you forget to install ANTLR? The environment variable was not set.")
+  message(FATAL_ERROR "Did you forget to install ANTLR? The ANTLR_INS environment variable was not "
+                       "set.")
 endif()
 set(_ANTLR_DIR "$ENV{ANTLR_INS}")
 
