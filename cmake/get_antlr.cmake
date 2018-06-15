@@ -62,5 +62,5 @@ foreach(lib_file_path ${_ANTLR_LIB_FILES})
 endforeach()
 
 # Create libs path and then add it to the linker paths.
-set(_ANTLR_LIB_DIRS "${INSTALL_DIR}/lib")
+set(_ANTLR_LIB_DIRS "${_ANTLR_DIR}/lib")
 link_directories("${_ANTLR_LIB_DIRS}")
