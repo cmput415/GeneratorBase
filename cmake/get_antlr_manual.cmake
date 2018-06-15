@@ -1,6 +1,11 @@
+# Another method to obtain the ANTLR C++ runtime. This will clone the github repository for ANTLR
+# and build its own copy of the runtime to use (roughly .5-.75GB extra space). Completely swappable
+# with finding your person install of ANTLR.
+
 # CMake module that downloads the antlr source and builds the C++ runtime required when linking
-# the generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
-# include directories and allows your build to link against antlr4-runtime.
+# a generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
+# include directories, adds the antlr library path to the project, allows your target to link
+# against antlr4-runtime, and creates ANTLR_JAR for generating grammars.
 
 # Set the directory for tools
 file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" TOOL_DIR) # Join dir.
@@ -68,5 +73,5 @@ foreach(src_path misc atn dfa tree support)
 endforeach(src_path)
 
 # Create libs path and then add it to the linker paths.
-set(ANTLR_LIBS "${INSTALL_DIR}/lib")
-link_directories("${ANTLR_LIBS}")
+set(_ANTLR_LIB_DIRS "${INSTALL_DIR}/lib")
+link_directories("${_ANTLR_LIB_DIRS}")

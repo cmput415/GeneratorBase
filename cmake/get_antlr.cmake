@@ -1,6 +1,11 @@
-# CMake module that downloads the antlr source and builds the C++ runtime required when linking
-# the generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
-# include directories and allows your build to link against antlr4-runtime.
+# A module to obtain the ANTLR C++ runtime. It attempts to find a locally installed copy of the
+# runtime pointed to by an environment variable called ANTLR_INS. Can swap in get_antlr_manual
+# if you'd rather have it auto-install a copy just for this project (more space).
+
+# CMake module that finds a previously installed copy of the ANTLR C++ runtime required when linking
+# a generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
+# include directories, adds the antlr library path to the project, allows your target to link
+# against antlr4-runtime, and creates ANTLR_JAR for generating grammars.
 
 # Get the environment variable that tells us where the manual install was.
 if (NOT DEFINED ENV{ANTLR_INS})
@@ -39,7 +44,7 @@ foreach(src_path misc atn dfa tree support)
   if (NOT EXISTS "${_ANTLR_DIR}/include/antlr4-runtime/${src_path}")
     message(FATAL_ERROR "Missing ANTLR include dir: ${_ANTLR_DIR}/include/antlr4-runtime/${src_path}")
   endif()
-  
+
   # Add the directory to the includes list.
   list(APPEND ANTLR_INCLUDE_DIRS "${_ANTLR_DIR}/include/antlr4-runtime/${src_path}")
 endforeach(src_path)
@@ -57,5 +62,5 @@ foreach(lib_file_path ${_ANTLR_LIB_FILES})
 endforeach()
 
 # Create libs path and then add it to the linker paths.
-set(ANTLR_LIBS "${_ANTLR_DIR}/lib")
-link_directories("${ANTLR_LIBS}")
+set(_ANTLR_LIB_DIRS "${INSTALL_DIR}/lib")
+link_directories("${_ANTLR_LIB_DIRS}")
