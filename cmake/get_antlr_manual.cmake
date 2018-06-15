@@ -8,13 +8,13 @@
 # against antlr4-runtime, and creates ANTLR_JAR for generating grammars.
 
 # Set the directory for tools
-file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" TOOL_DIR) # Join dir.
-set(TOOL_DIR ${TOOL_DIR} CACHE PATH "Tool download directory (ANTLR).") # Set for internal use.
-file(TO_NATIVE_PATH "${TOOL_DIR}" TOOL_DIR_NATIVE) # Transform for display.
-message(STATUS "Downloaded tools destination: ${TOOL_DIR_NATIVE}")
+file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" BIN_DIR) # Join dir.
+set(BIN_DIR ${BIN_DIR} CACHE PATH "Tool download directory (ANTLR).") # Set for internal use.
+file(TO_NATIVE_PATH "${BIN_DIR}" BIN_DIR_NATIVE) # Transform for display.
+message(STATUS "Downloaded tools destination: ${BIN_DIR_NATIVE}")
 
 # Download ANTLR executable, saves us from ensuring people have java build tools (e.g. Maven)...
-file(TO_CMAKE_PATH "${TOOL_DIR}/antlr.jar" ANTLR_JAR)
+file(TO_CMAKE_PATH "${BIN_DIR}/antlr.jar" ANTLR_JAR)
 if (NOT EXISTS "${ANTLR_JAR}")
   file(
     DOWNLOAD
