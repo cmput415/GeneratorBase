@@ -60,7 +60,7 @@ set(
 # Create the command to generate the sources.
 add_custom_command(
   OUTPUT ${ANTLR_GEN_SRC} ${ANTLR_GEN_HEADERS}
-  DEPENDS antlr "${GRAMMAR_PATH}"
+  DEPENDS "${GRAMMAR_PATH}"
   COMMAND
     ${CMAKE_COMMAND} -E make_directory ${ANTLR_GEN_DIR}
   COMMAND

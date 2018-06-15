@@ -8,9 +8,6 @@ set(
 add_executable(generator ${generator_src_files})
 target_include_directories(generator PUBLIC ${ANTLR_GEN_DIR})
 
-# Ensure that the antlr4-runtime is available.
-add_dependencies(generator antlr)
-
 # Add the antlr runtime and parser as libraries to link.
 target_link_libraries(generator parser antlr4-runtime)
 
