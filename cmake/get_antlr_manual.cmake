@@ -5,23 +5,25 @@
 # CMake module that downloads the antlr source and builds the C++ runtime required when linking
 # a generated lexer/parser. Creates the variable ANTLR_INCLUDE_DIRS to add to your target's
 # include directories, adds the antlr library path to the project, allows your target to link
-# against antlr4-runtime, and creates ANTLR_JAR for generating grammars.
+# against antlr4-runtime, creates ANTLR_JAR for generating grammars, and creates an antlr target
+# that you can add via add_dependencies to make sure everything has happened already.
 
-# Set the directory for tools
-file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/tools" BIN_DIR) # Join dir.
-set(BIN_DIR ${BIN_DIR} CACHE PATH "Tool download directory (ANTLR).") # Set for internal use.
-file(TO_NATIVE_PATH "${BIN_DIR}" BIN_DIR_NATIVE) # Transform for display.
-message(STATUS "Downloaded tools destination: ${BIN_DIR_NATIVE}")
+# Set the directory for binaries.
+file(TO_CMAKE_PATH "${CMAKE_BINARY_DIR}/bin" BIN_DIR) # Join dir.
+set(BIN_DIR ${BIN_DIR} CACHE PATH "ANTLR jar directory.") # Set for internal use.
 
 # Download ANTLR executable, saves us from ensuring people have java build tools (e.g. Maven)...
 file(TO_CMAKE_PATH "${BIN_DIR}/antlr.jar" ANTLR_JAR)
 if (NOT EXISTS "${ANTLR_JAR}")
+  message(STATUS "Downloading ANTLR generator...")
   file(
     DOWNLOAD
     http://www.antlr.org/download/antlr-4.7.1-complete.jar
     "${ANTLR_JAR}"
     SHOW_PROGRESS
   )
+  file(TO_NATIVE_PATH "${BIN_DIR}" BIN_DIR_NATIVE) # Transform for display.
+  message(STATUS "Downloaded ANTLR jar destination: ${BIN_DIR_NATIVE}")
 endif()
 
 # Download ANTLR source to get the runtime...
