@@ -55,19 +55,20 @@ endforeach(src_path)
 
 # Check that the ANTLR libs exist.
 set(
-  _ANTLR_LIB_FILES
+  _antlr_static
     "${_ANTLR_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}antlr4-runtime${CMAKE_STATIC_LIBRARY_SUFFIX}"
-    "${_ANTLR_DIR}/lib/${CMAKE_SHARED_LIBRARY_PREFIX}antlr4-runtime${CMAKE_SHARED_LIBRARY_SUFFIX}"
 )
-foreach(lib_file_path ${_ANTLR_LIB_FILES})
-  if (NOT EXISTS "${lib_file_path}")
-    message(FATAL_ERROR "Missing ANTLR lib: ${lib_file_path}")
-  endif()
-endforeach()
+if (NOT EXISTS "${_antlr_static}")
+  message(FATAL_ERROR "Missing static ANTLR lib: ${_antlr_static}")
+endif()
 
-# Create libs path and then add it to the linker paths.
-set(_ANTLR_LIB_DIRS "${_ANTLR_DIR}/lib")
-link_directories("${_ANTLR_LIB_DIRS}")
+# Make antlr4-runtime a static library.
+add_library(antlr4-runtime STATIC IMPORTED)
+set_property(
+  TARGET antlr4-runtime
+  PROPERTY
+  IMPORTED_LOCATION ${_antlr_static}
+)
 
 # Add dummy target. There's nothing to be built because we're just importing antlr and exporting
 # values.
