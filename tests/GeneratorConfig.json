@@ -1,0 +1,20 @@
+{
+  "inDir": "<inDir>",
+  "outDir": "<inDir>",
+  "testedExecutablePaths": {
+    "<ccid>": "<path_to_generator_exe>"
+  },
+  "toolchains": {
+      "interpreter": [
+        {
+          "stepName": "generator-interpreter",
+          "executablePath": "$EXE",
+          "arguments": [
+            "$INPUT",
+            "$OUTPUT"
+            ],
+          "output": "generator.out"
+        }
+      ]
+    }
+}
