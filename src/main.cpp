@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
   // visitor.visit(tree);
 
   // HOW TO WRITE OUT.
-  // std::ofstream out(argv[3]);
+  // std::ofstream out(argv[2]);
   // out << "This is out...\n";
 
   return 0;
