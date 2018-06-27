@@ -32,6 +32,7 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
      project.
   1. Add new usage instructions if you require more installs or instructions
      for other tools (LLVM or others) to `README.md`.
+  1. Add a template test configuration in the tests directory.
   1. Delete this section from your `README.md`.
   1. Distribute.
 
