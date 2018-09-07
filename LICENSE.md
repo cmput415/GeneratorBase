@@ -2,8 +2,8 @@ CMPUT 415 Student Submission License (Version 1.0)
 
 Copyright 2018 `student name`
 
-Unauthorized redistribution is forbidden in all circumstances. Use of this 
-software without explicit authorization from the author **or** CMPUT 229
+Unauthorized redistribution is forbidden in all circumstances. Use of this
+software without explicit authorization from the author **or** CMPUT 415
 Teaching Staff is prohibited.
 
 This software was produced as a solution for an assignment in the course CMPUT
@@ -36,4 +36,3 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
