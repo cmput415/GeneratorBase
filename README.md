@@ -11,7 +11,7 @@ Author: Braedy Kuzma (braedy@ualberta.ca)
        encounter an issue, let Braedy know and we can fix it.
   1. Make a directory that you intend to build the project in and change into
      that directory.
-  1. Run `cmake <path-to-generator-src>`.
+  1. Run `cmake <path-to-Generator-Base>`.
   1. Run `make`.
   1. Done.
 
