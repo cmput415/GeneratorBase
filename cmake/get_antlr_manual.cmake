@@ -18,7 +18,7 @@ if (NOT EXISTS "${ANTLR_JAR}")
   message(STATUS "Downloading ANTLR generator...")
   file(
     DOWNLOAD
-    http://www.antlr.org/download/antlr-4.7.1-complete.jar
+    http://www.antlr.org/download/antlr-4.8-complete.jar
     "${ANTLR_JAR}"
     SHOW_PROGRESS
   )
@@ -42,7 +42,7 @@ ExternalProject_Add(
 
   # ANTLR repository and tag.
   GIT_REPOSITORY https://github.com/antlr/antlr4.git
-  GIT_TAG "4.7.1"
+  GIT_TAG "4.8"
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
   TIMEOUT 10
