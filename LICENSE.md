@@ -1,6 +1,6 @@
 CMPUT 415 Student Submission License (Version 1.0)
 
-Copyright 2018 `student name`
+Copyright 2022 `student name`
 
 Unauthorized redistribution is forbidden in all circumstances. Use of this
 software without explicit authorization from the author **or** CMPUT 415
