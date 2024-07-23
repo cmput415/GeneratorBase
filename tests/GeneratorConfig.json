@@ -1,6 +1,5 @@
 {
-  "inDir": "<inDir>",
-  "outDir": "<inDir>",
+  "testDir": "<path_to_test_dir>",
   "testedExecutablePaths": {
     "<ccid>": "<path_to_generator_exe>"
   },
