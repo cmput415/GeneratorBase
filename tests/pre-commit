@@ -37,9 +37,12 @@ REPO_ROOT=$(git rev-parse --show-toplevel)
 # Extract the name of the project directory from the repository root path
 PROJECT_DIR_NAME=$(basename "$REPO_ROOT")
 
+# The team name is the substring of the project directory from the right of the
+# first '-'. For example vcalc-unicorn -> unicorn
+TEAM_NAME=${PROJECT_DIR_NAME#*-}
 TEST_DIR="${REPO_ROOT}/tests"
 TESTFILES_DIR="${TEST_DIR}/testfiles"
-EXPECTED_PACKAGE="${TESTFILES_DIR}/${PROJECT_DIR_NAME}"
+EXPECTED_PACKAGE="${TESTFILES_DIR}/${TEAM_NAME}"
 
 # Assert that the test directory is present.
 if [ ! -d $TEST_DIR ]; then
