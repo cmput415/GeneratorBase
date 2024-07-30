@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Place this script in .git/hooks/ to ensure that your test structure
+# is correct on every commit. You can also run it ad hoc.
+
+# Color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+# Get the full path to the git repository root
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+# Extract the name of the project directory from the repository root path
+PROJECT_DIR_NAME=$(basename "$REPO_ROOT")
+
+# The team name is the substring of the project directory from the right of the
+# first '-'. For example vcalc-unicorn -> unicorn
+TEAM_NAME=${PROJECT_DIR_NAME#*-}
+TEST_DIR="${REPO_ROOT}/tests"
+TESTFILES_DIR="${TEST_DIR}/testfiles"
+EXPECTED_PACKAGE="${TESTFILES_DIR}/${TEAM_NAME}"
+
+# Assert that the test directory is present.
+if [ ! -d $TEST_DIR ]; then
+    echo -e "${RED} Could not find expected directory: ${TEST_DIR} ${NC}"
+    exit 1
+fi
+
+# Assert that a testfiles directory is present.
+if [ ! -d $TESTFILES_DIR ]; then
+    echo -e "${RED}Could not find expected directory: ${TESTFILES_DIR}${NC}"
+    exit 1
+fi
+
+# Assert that the expected first package is present.
+if [ ! -d $EXPECTED_PACKAGE ]; then
+    echo -e "--- ${RED}ERROR:${NC} Missing a self-named package in testfiles!"
+    echo -e "--- Expected a package named ${YELLOW}~/tests/testfiles/${PROJECT_DIR_NAME}${NC}" 
+    exit 1
+fi
+
+exit 0
