@@ -1,0 +1,53 @@
+name: Gazprea Feature Tests
+
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - "include/**"
+      - "lib/**"
+      - "src/**"
+      - "tests/**"
+
+jobs:
+  build-artifact:
+    runs-on: self-hosted
+    container: ghcr.io/cmput415/gaz-utils:latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B bin -G Ninja .
+
+      - name: Build
+        run: cd bin && ninja -j $(nproc)
+
+      - name: Upload generator interpreter artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: generator-interp
+          path: bin
+
+  llc-tests:
+    runs-on: self-hosted
+    container: ghcr.io/cmput415/dragon-runner:latest
+    needs: [ build-artifact ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download built artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: generator-interp
+          path: ./bin
+
+      - name: Make Executable
+        run: chmod +x ./bin/generator
+
+      - name: Run llc tests
+        run: dragon-runner tests/GeneratorCIConfig.json --timeout 10
